@@ -2,6 +2,51 @@
 # Date:
 
 # proj05: functions and lists
+#list[0] = var to add something to the area?
+
+
+def divisors(num):
+    list = []
+    list2 = []
+    list3 = []
+    while num > 0:
+        list.append(num)
+        num = int(num - 1)
+    print list
+
+    for num in range(len(list)):
+
+        list2.append(list[-1])
+
+
+
+
+        list = list[:-1]
+    print list2
+    number = 1
+    while number < num + 1:
+        if num%number == 0:
+
+            list3.append(number)
+        number=number+1
+    print list3
+    #nummm = int(num%)     #if int(num%list2[0]) == 0:
+            #print "
+
+    #if numberequation ==        #print "yay"
+    #else:
+       # print "no"
+
+    #if numberequation == 0:
+        #list2.append(numberequation)
+#print list
+#print list2
+divisors(15)
+
+
+
+
+
 
 # Part I
 
