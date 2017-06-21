@@ -9,73 +9,146 @@ def divisors(num):
     list = []
     list2 = []
     list3 = []
-    while num > 0:
-        list.append(num)
-        num = int(num - 1)
-    print list
 
-    for num in range(len(list)):
-
-        list2.append(list[-1])
-
-
-
-
-        list = list[:-1]
-    print list2
+    numberr=0
     number = 1
     while number < num + 1:
+
         if num%number == 0:
 
-            list3.append(number)
-        number=number+1
-    print list3
-    #nummm = int(num%)     #if int(num%list2[0]) == 0:
-            #print "
+            numberr=num/number
 
-    #if numberequation ==        #print "yay"
-    #else:
-       # print "no"
+            list3.append(numberr)
+        number = number + 1
 
-    #if numberequation == 0:
-        #list2.append(numberequation)
-#print list
-#print list2
+    print list3[::-1]
+
+    return list3[::-1]
+
+
 divisors(15)
 
-
-
-
-
-
-# Part I
-
-def divisors(num):
-    """
-    Takes a number and returns all divisors of the number, ordered least to greatest
-    :param num: int
-    :return: list (int)
-    """
-    return 0
-
 def prime(num):
-    """
-    Takes a number and returns True if the number is prime, otherwise False
-    :param num: int
-    :return: bool
-    """
-    return False
+    var = divisors(num)
+
+    listc=[]
+    numberr = 0
+
+
+    if len(var) > 2:
+        print "no not a prime"
+        return False
+    else:
+        print "yes its a prime"
+        return True
+
+
+prime(8)
+
+#PART TWOOOOOOOOO
+
+
+def intersection(lst1, lst2):
+    listt = []
+    listtt = []
+    if len(lst1) > len(lst2):
+        biggerlst = lst1
+        smallerlst = lst2
+    else:
+        biggerlst = lst2
+        smallerlst = lst1
+    for letter in smallerlst:
+        if letter in biggerlst:
+            listt.append(letter)
+    return listt
+
+#PART THREEEEEEE
+#a ^2 + b^2 = c^2
+def find_ab(side1, side2, side3):
+    if side1 > side2 and side1 > side3:
+        b=side2
+        a=side3
+        print"side 2 and side 3 are a and b"
+    elif side2>side1 and side2>side3:
+
+        b=side3
+        a=side1
+        print"side 1 and side 3 are a and b"
+    else:
+
+        b=side1
+        a=side2
+        "side 1 and side 2 are a and b"
+    sides = [a,b]
+    return a, b
+
+def find_c(side1, side2, side3):
+    if side1 > side2 and side1 > side3:
+        c = side1
+        print "side 1 is the hypotenuse"
+    elif side2 > side1 and side2 > side3:
+        c = side2
+        print "side 2 is the hypotenuse"
+    else:
+        c= side3
+        print"side 3 is the hypotenuse"
+    hypotenuse = [c]
+    return c
+def square(side):
+    side = side * side
+    print "that number squared is", side
+    return side
+def pythagorean(a, b, c):
+    a = side1
+    b = side2
+    c = side3
+    if side1 > side2 and side1 > side3:
+        a = side2
+        b = side3
+        c = side1
+    elif side2 > side1 and side2 > side3:
+        c = side2
+        b = side3
+        a = side1
+    else:
+        c = side3
+        b = side2
+        a = side1
+    a2 = a * a
+    b2 = b * b
+    c2 = c * c
+    if a2 +b2 == c2:
+        return True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Part II
 
-def intersection(lst1, lst2):
-    """
-    Takes two lists and returns a list of the elements in common between the lists
-    :param lst1: list, any type
-    :param lst2: list, any type
-    :return: list, any type
-    """
-    return ["test"]
+#def intersection(lst1, lst2):
+    #"""
+    #Takes two lists and returns a list of the elements in common between the lists
+    #:param lst1: list, any type
+    #:param lst2: list, any type
+    #:return: list, any type
+    #"""
+    #return ["test"]
 
 # Part III
 
