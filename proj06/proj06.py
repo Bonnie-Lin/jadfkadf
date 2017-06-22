@@ -1,5 +1,5 @@
-# Name:
-# Date:
+# Name: Jeffrey, Bonnie
+# Date:6/22/18
 
 
 # proj06: Hangman
@@ -46,3 +46,61 @@ def choose_word(wordlist):
 wordlist = load_words()
 
 # your code begins here!
+randomword=choose_word(wordlist)
+
+print randomword
+#list1=[]
+blanks=[]
+list3=[]#actual list for a bunch of blanks
+list4=[]
+correctword = (randomword)
+print correctword
+wordlength2=len(blanks)
+wordlength=len(correctword)
+wordlength3 = len(list3)#setting the lenghth of what the blanks are naming it
+while wordlength3 < wordlength:
+    list3.append('-')
+    wordlength3 = wordlength3+1
+print list3
+playerinput = raw_input("enter your letter")
+index=0
+#if playerinput==correctword(index):
+
+while index < wordlength3 + 1:
+    index = index + 1
+    print list3
+    if playerinput == correctword[index]:
+        list3[index] = playerinput
+
+    elif playerinput != correctword[index]:
+
+
+
+
+
+
+#while wordlength3 < wordlength:
+    #list3.append('-')
+    #indexnumber = 0
+    #while indexnumber < wordlength:
+        #indexnumber = indexnumber + 1
+        #print list3
+
+
+
+
+#print blanks
+#print len(blanks)
+
+#for letters in (correctword):
+
+    #if playerinput == correctword[indexnumber]: #this part is for placing correct letters
+
+        #wordlength3 = len(list3)
+
+
+    #else:
+        #while indexnumber < wordlength:
+            #indexnumber = indexnumber + 1
+    #list4.append(playerinput)
+    #print list4
