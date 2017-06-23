@@ -62,7 +62,28 @@ def get_frequency_dict(sequence):
 # Problem #1: Scoring a word
 #
 def get_word_score(word, n):
-    """
+    stringlist = []
+    letterlist = []
+    comparedlist = {}
+
+    #wordinput = raw_input ("Enter your word!")
+    for letters in word:
+        letterlist.append(letters)
+    print letterlist
+    stringlist.append(word)
+    for letters in letterlist:
+        if letters in letterlist:
+            print "if state worked"
+        for letters in SCRABBLE_LETTER_VALUES:
+            print "it is working yayhahahahaha i wanna die"
+            comparedlist.append(letters)
+            print comparedlist
+
+    #SCRABBLE_LETTER_VALUES
+    return word
+get_word_score("hello", 10)
+
+"""
     Returns the score for a word. Assumes the word is a
     valid word.
 
@@ -228,3 +249,30 @@ def play_game(word_list):
 if __name__ == '__main__':
     word_list = load_words()
     play_game(word_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
