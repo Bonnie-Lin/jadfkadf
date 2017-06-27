@@ -1,5 +1,5 @@
 # Name:Damian and Bonnie
-# Date:June 27th, 2017
+# Date:June 27th, 2017 
 
 import feedparser
 import string
@@ -96,7 +96,7 @@ class WordTrigger(Trigger):
 
 
         str = str.lower()
-        print str
+        #print str
         # upper/lower
         import string
         punctuation = string.punctuation
@@ -105,10 +105,10 @@ class WordTrigger(Trigger):
             str = str.replace(item, ' ')
 
         str = str.split(' ')
-        print str
-        print self.word
+        #print str
+        #print self.word
         if self.word in str:
-            print True#might be something wrong with 'story'
+            #print True#might be something wrong with 'story'
             return True
         else:
             return False
@@ -143,22 +143,20 @@ class TitleTrigger(WordTrigger):
 
 # TODO: SubjectTrigger
 class SubjectTrigger(WordTrigger):
-    def SubjectTrigger(self, story):
-        if SubjectTrigger in story:
-            return True
-        else:
-            return False
 
+    def evaluate(self, story):
+
+        return self.is_word_in(story.get_subject())
 
 
 
 # TODO: SummaryTrigger
+
 class SummaryTrigger(WordTrigger):
-    def SummaryTrigger(self, story):
-        if SummaryTrigger in story:
-            return True
-        else:
-            return False
+
+    def evaluate(self, story):
+
+        return self.is_word_in(story.get_summary())
 
 # class linktrigger(str):
 #     def linktrigger(self, story):
@@ -171,10 +169,45 @@ class SummaryTrigger(WordTrigger):
 # Problems 6-8
 
 # TODO: NotTrigger
+class NotTrigger(Trigger):
+
+    def __init__(self, Trigger):
+        self.Trigger = Trigger
+
+
+
+    def evaluate(self, story):
+        return not self.Trigger.evaluate(story)
+
+
 
 
 # TODO: AndTrigger
+class AndTrigger(Trigger):
+    def __init__(self, Trigger, Trigger2):
+        self.Trigger = Trigger
+        self.Trigger2 = Trigger2
+
+    def evaluate(self, story):
+
+
+            return self.Trigger.evaluate(story) and self.Trigger2.evaluate(story)
+
+
+
+
+
 # TODO: OrTrigger
+
+class OrTrigger(Trigger):
+    def __init__(self, Trigger, Trigger2):
+        self.Trigger = Trigger
+        self.Trigger2 = Trigger2
+
+    def evaluate(self, story):
+
+
+            return self.Trigger.evaluate(story) or self.Trigger2.evaluate(story)
 
 
 # Phrase Trigger
