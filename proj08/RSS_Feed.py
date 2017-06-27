@@ -1,5 +1,5 @@
 # Name:Damian and Bonnie
-# Date:June 26th, 2017
+# Date:June 27th, 2017
 
 import feedparser
 import string
@@ -86,9 +86,29 @@ class Trigger(object):
 # Problems 2-5
 
 # TODO: WordTrigger
-class wordtrigger(str):
-    def wordtrigger(self, story):
-        if wordtrigger in story:
+class WordTrigger(Trigger):
+    def __init__(self, word):
+
+        self.word = word.lower()
+
+
+    def is_word_in(self, str):
+
+
+        str = str.lower()
+        print str
+        # upper/lower
+        import string
+        punctuation = string.punctuation
+
+        for item in punctuation:
+            str = str.replace(item, ' ')
+
+        str = str.split(' ')
+        print str
+        print self.word
+        if self.word in str:
+            print True#might be something wrong with 'story'
             return True
         else:
             return False
@@ -97,17 +117,62 @@ class wordtrigger(str):
 
 
 
-# TODO: TitleTrigger
-class titletrigger(str:
-    )
-# TODO: SubjectTrigger
-# TODO: SummaryTrigger
 
+
+
+
+
+# TODO: TitleTrigger
+
+class TitleTrigger(WordTrigger):
+
+    def evaluate(self, story):
+
+
+        return self.is_word_in(story.get_title())
+# story not workin g
+
+
+
+
+
+
+
+
+
+
+# TODO: SubjectTrigger
+class SubjectTrigger(WordTrigger):
+    def SubjectTrigger(self, story):
+        if SubjectTrigger in story:
+            return True
+        else:
+            return False
+
+
+
+
+# TODO: SummaryTrigger
+class SummaryTrigger(WordTrigger):
+    def SummaryTrigger(self, story):
+        if SummaryTrigger in story:
+            return True
+        else:
+            return False
+
+# class linktrigger(str):
+#     def linktrigger(self, story):
+#         if linktrigger in story:
+#             return True
+#         else:
+#             return False
 
 # Composite Triggers
 # Problems 6-8
 
 # TODO: NotTrigger
+
+
 # TODO: AndTrigger
 # TODO: OrTrigger
 
