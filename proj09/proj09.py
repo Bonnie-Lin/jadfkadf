@@ -57,36 +57,63 @@ class RectangularRoom(object):
     particular time, each of these tiles is either clean or dirty.
     """
     def __init__(self, width, height):
-        """
-        Initializes a rectangular room with the specified width and height.
+        self.width = width
+        self.height = height
+        area = w*l
+        dirtylist = []
+        cleanedlist = []
+        number = 0
+        while number < area:
+            cleanedlist.append(number)
+            number = number + 1
 
-        Initially, no tiles in the room have been cleaned.
 
-        width: an integer > 0
-        height: an integer > 0
-        """
+        # """
+        # Initializes a rectangular room with the specified width and height.
+        #
+        # Initially, no tiles in the room have been cleaned.
+        #
+        # width: an integer > 0
+        # height: an integer > 0
+        # """
         raise NotImplementedError
     
     def cleanTileAtPosition(self, pos):
-        """
-        Mark the tile under the position POS as cleaned.
 
-        Assumes that POS represents a valid position inside this room.
 
-        pos: a Position
-        """
+
+        self.pos = pos
+        ontile =
+
+
+
+
+
+        
+        if pos ==
+
+        # """
+        # Mark the tile under the position POS as cleaned.
+        #
+        # Assumes that POS represents a valid position inside this room.
+        #
+        # pos: a Position
+
+        # """
         raise NotImplementedError
 
     def isTileCleaned(self, m, n):
-        """
-        Return True if the tile (m, n) has been cleaned.
 
-        Assumes that (m, n) represents a valid tile inside the room.
-
-        m: an integer
-        n: an integer
-        returns: True if (m, n) is cleaned, False otherwise
-        """
+        self.m = pos
+        # """
+        # Return True if the tile (m, n) has been cleaned.
+        #
+        # Assumes that (m, n) represents a valid tile inside the room.
+        #
+        # m: an integer
+        # n: an integer
+        # returns: True if (m, n) is cleaned, False otherwise
+        # """
         raise NotImplementedError
     
     def getNumTiles(self):
