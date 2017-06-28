@@ -1,5 +1,5 @@
 # Name:Damian and Bonnie
-# Date:June 27th, 2017 
+# Date:June 28th, 2017
 
 import feedparser
 import string
@@ -215,6 +215,25 @@ class OrTrigger(Trigger):
 
 # TODO: PhraseTrigger
 
+class PhraseTrigger(Trigger):
+
+
+    def __init__(self, phrase):
+        self.phrase = phrase
+
+
+    def evaluate(self, story):
+
+        #subject
+        subject = story.get_subject()
+        title = story.get_title()
+        summary = story.get_summary()
+        if self.phrase in subject or self.phrase in title or self.phrase in summary:
+            return True
+        else:
+            return False
+
+
 
 #======================
 # Part 3
@@ -222,15 +241,28 @@ class OrTrigger(Trigger):
 #======================
 
 def filter_stories(stories, triggerlist):
-    """
-    Takes in a list of NewsStory-s.
-    Returns only those stories for whom
-    a trigger in triggerlist fires.
-    """
-    # TODO: Problem 10
-    # This is a placeholder (we're just returning all the stories, with no filtering) 
+    storylist = []
+    for story in stories:
+        for Trigger in triggerlist:
+            if Trigger.evaluate(story):
+                storylist.append(story)
+    return storylist
+
+
+
+
+
+
+
+    # """
+    # Takes in a list of NewsStory-s.
+    # Returns only those stories for whom
+    # a trigger in triggerlist fires.
+    # """
+    # # TODO: Problem 10
+    # This is a placeholder (we're just returning all the stories, with no filtering)
     # Feel free to change this line!
-    return stories
+
 
 #======================
 # Extensions: Part 4
@@ -238,14 +270,14 @@ def filter_stories(stories, triggerlist):
 #======================
 
 def readTriggerConfig(filename):
-    """
-    Returns a list of trigger objects
-    that correspond to the rules set
-    in the file filename
-    """
-    # Here's some code that we give you
-    # to read in the file and eliminate
-    # blank lines and comments
+    # """
+    # Returns a list of trigger objects
+    # that correspond to the rules set
+    # in the file filename
+    # """
+    # # Here's some code that we give you
+    # # to read in the file and eliminate
+    # # blank lines and comments
     triggerfile = open(filename, "r")
     all = [ line.rstrip() for line in triggerfile.readlines() ]
     lines = []
@@ -258,7 +290,7 @@ def readTriggerConfig(filename):
     # 'lines' has a list of lines you need to parse
     # Build a set of triggers from it and
     # return the appropriate ones
-    
+
 import thread
 
 def main_thread(p):
@@ -269,13 +301,13 @@ def main_thread(p):
     t3 = PhraseTrigger("Net Neutrality")
     t4 = OrTrigger(t2, t3)
     triggerlist = [t1, t4]
-    
+
     # TODO: Problem 11
-    # After implementing readTriggerConfig, uncomment this line 
+    # After implementing readTriggerConfig, uncomment this line
     #triggerlist = readTriggerConfig("triggers.txt")
 
     guidShown = []
-    
+
     while True:
         print "Polling..."
 
@@ -286,7 +318,7 @@ def main_thread(p):
 
         # Only select stories we're interested in
         stories = filter_stories(stories, triggerlist)
-    
+
         # Don't print a story if we have already printed it before
         newstories = []
         for story in stories:
